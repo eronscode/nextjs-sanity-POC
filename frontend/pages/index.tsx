@@ -2,8 +2,19 @@ import Head from "next/head";
 import { Navbar } from "@/components/Navbar/Navbar";
 import { Footer } from "@/components/Footer/Footer";
 import { Hero } from "@/components/Hero/Hero";
+import { groq } from "next-sanity";
+import type { SanityDocument } from "@sanity/client";
+import { client } from "../lib/sanity.client";
 
-export default function Home() {
+const query = groq`*[_type == "movie" && defined(slug.current)]{
+  _id,
+  title, 
+  slug
+}`;
+
+
+export default function Home({ data }: { data: SanityDocument[] }) {
+  console.log({data})
   return (
     <>
       <Head>
@@ -20,3 +31,9 @@ export default function Home() {
     </>
   );
 }
+
+export const getStaticProps = async () => {
+  const data = await client.fetch(query);
+
+  return { props: { data } };
+};
