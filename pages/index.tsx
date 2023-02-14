@@ -1,4 +1,7 @@
-import Head from 'next/head'
+import Head from "next/head";
+import { Navbar } from "@/components/Navbar/Navbar";
+import { Footer } from "@/components/Footer/Footer";
+import { Hero } from "@/components/Hero/Hero";
 
 export default function Home() {
   return (
@@ -9,9 +12,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main >
-        <h2 className='text-center'>sdsd</h2>
+      <main>
+        <Navbar />
+        <Hero />
+        <Footer />
       </main>
     </>
-  )
+  );
 }
