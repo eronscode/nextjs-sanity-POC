@@ -1,3 +1,4 @@
+import { defaultDocumentNode } from './defaultDocumentNode';
 import {defineConfig} from 'sanity'
 import {deskTool} from 'sanity/desk'
 import {visionTool} from '@sanity/vision'
@@ -12,7 +13,9 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [
-    deskTool(),
+    deskTool({
+      defaultDocumentNode
+    }),
     visionTool(),
     //googleMapsInput(),
   ],
