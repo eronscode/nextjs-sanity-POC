@@ -48,10 +48,7 @@ export default {
                 title: 'Reference',
                 to: [
                   {
-                    type: 'home',
-                  },
-                  {
-                    type: 'cmsPage',
+                    type: 'page',
                   },
                 ],
               },
