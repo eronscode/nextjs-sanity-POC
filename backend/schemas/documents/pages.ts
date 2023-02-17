@@ -21,13 +21,13 @@ export default defineType({
         source: 'title',
       },
       validation: (rule) => rule.required(),
-      description: 'It can be left empty as it\'s auto generated from the title',
+      description: 'You can click the generate button to generate slug based on title',
     }),
     defineField({
       name: 'pageSections',
       type: 'array',
       title: 'Sections',
-      of: [{type: 'hero'}],
+      of: [{type: 'section_hero'}],
     }),
     defineField({
       name: 'seo',
