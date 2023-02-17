@@ -1,7 +1,13 @@
+import { resolveHref } from "@/lib/sanity.link";
+import { NavigationMenu } from "@/types/global";
 import Link from "next/link";
 import React, { FunctionComponent } from "react";
 
-export const Navbar: FunctionComponent = () => {
+type NavbarProps = {
+  menu?: NavigationMenu;
+};
+
+export const Navbar: FunctionComponent<NavbarProps> = ({ menu }) => {
   return (
     <nav className="navbar " id="navbar">
       <div className="container flex flex-wrap items-center justify-between">
@@ -28,31 +34,23 @@ export const Navbar: FunctionComponent = () => {
           id="menu-collapse"
         >
           <ul className="navbar-nav nav-light" id="navbar-navlist">
-            <li className="nav-item">
-              <Link className="nav-link" href="/">
-                Home
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="/">
-                About Us
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="/">
-                Team
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="/">
-                Blog
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" href="/">
-                Contact Us
-              </Link>
-            </li>
+            {menu?.navItems &&
+              menu?.navItems?.map((navItem, key) => {
+                const href = resolveHref(
+                  navItem?.url?.internalLink?._type,
+                  navItem?.url?.internalLink?.slug,
+                );
+                if (!href) {
+                  return null;
+                }
+                return (
+                  <li key={key} className="nav-item">
+                    <Link className="nav-link" href={href}>
+                      {navItem?.text}
+                    </Link>
+                  </li>
+                );
+              })}
           </ul>
         </div>
       </div>
