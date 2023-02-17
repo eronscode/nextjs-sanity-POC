@@ -12,11 +12,8 @@ export default {
       type: 'reference',
       to: [
         {
-          type: 'home',
-        },
-        {
-          type: 'cmsPage',
-        },
+          type: 'page',
+        }
       ],
     }),
     defineField({
