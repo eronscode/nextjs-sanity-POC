@@ -15,5 +15,16 @@ export default {
       title: 'Reference to page',
       type: 'link',
     }),
+    defineField({
+      title: 'Link Variant',
+      name: 'linkVariant',
+      type: 'string',
+      options: {
+        list: [
+          {title: 'Primary', value: 'primary'},
+          {title: 'Secondary', value: 'secondary'},
+        ],
+      },
+    }),
   ],
 }
