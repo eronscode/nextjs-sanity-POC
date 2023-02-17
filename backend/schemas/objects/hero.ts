@@ -1,5 +1,5 @@
 export default {
-  name: 'hero',
+  name: 'section_hero',
   type: 'object',
   title: 'Hero',
   fields: [
@@ -34,4 +34,17 @@ export default {
       type: 'callToAction',
     },
   ],
+  preview: {
+    select: {
+      heading: 'heading',
+      image: 'image',
+    },
+    prepare({heading, image}: any) {
+      return {
+        subtitle: 'Hero',
+        title: heading,
+        media: image,
+      }
+    },
+  },
 }
