@@ -1,19 +1,19 @@
 import { resolveHref } from "@/lib/sanity.link";
-import { NavigationMenu } from "@/types/global";
 import Link from "next/link";
 import React, { FunctionComponent } from "react";
 
 type NavbarProps = {
   menu?: NavigationMenu;
+  preview?: boolean;
 };
 
-export const Navbar: FunctionComponent<NavbarProps> = ({ menu }) => {
+export const Navbar: FunctionComponent<NavbarProps> = ({ menu, preview }) => {
   return (
-    <nav className="navbar " id="navbar">
+    <nav style={{ top: preview ? "35px" : "" }} className="navbar" id="navbar">
       <div className="container flex flex-wrap items-center justify-between">
-        <a className="navbar-brand md:mr-16" href="index.html">
-          <p className="text-white dark:text-white font-bold">LOGO</p>
-        </a>
+        <Link className="navbar-brand md:mr-16" href="/">
+          <p className="text-white dark:text-white font-bold">CodeHero</p>
+        </Link>
 
         <div className="nav-icons flex items-center lg_992:order-2 ml-auto md:ml-8">
           <ul className="list-none menu-social mb-0 ps-lg-4"></ul>
