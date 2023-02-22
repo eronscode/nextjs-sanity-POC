@@ -13,6 +13,9 @@ export default {
       to: [
         {
           type: 'page',
+        },
+        {
+          type: 'blogPage',
         }
       ],
     }),
