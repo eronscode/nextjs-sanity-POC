@@ -1,6 +1,6 @@
-import { PagePayload } from "./../types/pages";
+import { BlogPagePayload, PagePayload } from "./../types/pages";
 import { createClient } from "next-sanity";
-import { homePageQuery, pagePathsQuery, pagesBySlugQuery, settingsQuery } from "./sanity.queries";
+import { blogPageQuery, homePageQuery, pagePathsQuery,postsQuery, pagesBySlugQuery, settingsQuery, postsBySlugQuery, postPathsQuery } from "./sanity.queries";
 import { SettingsPayload } from "@/types/global";
 
 export const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID;
@@ -16,6 +16,22 @@ export async function getHomePage({
   token?: string;
 }): Promise<{ frontPage: PagePayload } | undefined> {
   return await sanityClient(token)?.fetch(homePageQuery);
+}
+
+export async function getBlogPage({
+  token,
+}: {
+  token?: string;
+}): Promise<PagePayload | undefined> {
+  return await sanityClient(token)?.fetch(blogPageQuery);
+}
+
+export async function getPosts({
+  token,
+}: {
+  token?: string;
+}): Promise<BlogPagePayload | undefined> {
+  return await sanityClient(token)?.fetch(postsQuery);
 }
 
 export async function getSettings({
@@ -36,6 +52,20 @@ export async function getPageBySlug({
   return await sanityClient(token)?.fetch(pagesBySlugQuery, { slug })
 }
 
+export async function getPostBySlug({
+  slug,
+  token,
+}: {
+  slug: string
+  token?: string
+}): Promise<PagePayload | undefined> {
+  return await sanityClient(token)?.fetch(postsBySlugQuery, { slug })
+}
+
 export async function getPagePaths(): Promise<string[]> {
   return await sanityClient()?.fetch(pagePathsQuery)
+}
+
+export async function getPostPaths(): Promise<string[]> {
+  return await sanityClient()?.fetch(postPathsQuery)
 }
