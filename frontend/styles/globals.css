@@ -2,6 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
+/* This css is from the html template used for this POC. They modified the tailwin css file to suite the design which is probably not good*/
+
+@font-face {
+  font-family: "Lexend";
+  src: url("/fonts/Lexend-Regular.woff2") format("woff2");
+  font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("/fonts/Roboto-Regular.woff2") format("woff2");
+  font-style: normal;
+}
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Regular.woff2") format("woff2");
+  font-style: normal;
+}
+
 *,
 ::after,
 ::before {
@@ -840,7 +858,7 @@ video {
 }
 
 .w-full {
-  width: 100% !important;
+  width: 100%;
 }
 
 .w-20 {
@@ -1736,7 +1754,7 @@ p {
   left: 0;
   right: 0;
   z-index: 999;
-  background-color: rgb(22 28 45 ) !important;
+  background-color: rgb(22 28 45) !important;
   padding-top: 0.75rem;
   padding-bottom: 0.75rem;
   font-family: Lexend, sans-serif;
