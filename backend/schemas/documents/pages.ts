@@ -1,5 +1,4 @@
-import {HomeIcon} from '@sanity/icons'
-import { defineField, defineType} from 'sanity'
+import {defineField, defineType} from 'sanity'
 
 export default defineType({
   name: 'page',
@@ -27,7 +26,14 @@ export default defineType({
       name: 'pageSections',
       type: 'array',
       title: 'Sections',
-      of: [{type: 'section_hero'}],
+      of: [
+        {type: 'section_hero'},
+        {type: 'section_textWithImage'},
+        {type: 'section_customerReviews'},
+        {type: 'section_pricings'},
+        {type: 'section_services'},
+        {type: 'section_genericText'},
+      ],
     }),
     defineField({
       name: 'seo',
