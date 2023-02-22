@@ -1,11 +1,11 @@
 import React from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
-import { PagePayload } from "@/types/pages";
+import { BlogPagePayload, PagePayload } from "@/types/pages";
 import { urlForImage } from "@/lib/sanity.image";
 
 interface Props {
-  data?: PagePayload["seo"];
+  data?: PagePayload["seo"] | BlogPagePayload["seo"];
   type?: string;
   lang?: string;
   author?: string;
@@ -13,8 +13,8 @@ interface Props {
 
 const defaultValues = {
   lang: "en-US",
-  siteName: "Mirotech Agency Website",
-  author: "Mirotech",
+  siteName: "CodeHero Academy",
+  author: "CodeHero",
   description: "Some default description",
 };
 
