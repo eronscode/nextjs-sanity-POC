@@ -16,9 +16,7 @@ export const BlogSection: FunctionComponent<BlogSectionProps> = ({
   posts,
 }) => {
   return (
-    <section
-      className="relative md:py-24 py-16 bg-gray-50 dark:bg-slate-800"
-    >
+    <section className="relative md:py-24 py-16 bg-gray-50 dark:bg-slate-800">
       <div className="container">
         <div className="grid grid-cols-1 pb-8 text-center">
           {title && (
@@ -41,12 +39,13 @@ export const BlogSection: FunctionComponent<BlogSectionProps> = ({
                 <ImageBox image={post.image} width={350} height={230} />
 
                 <div className="content p-6">
-                  <a
-                    href="blog-detail.html"
+                  <Link
+                    href={href ?? ""}
                     className="text-lg hover:text-violet-600 dark:text-white dark:hover:text-violet-600 transition duration-500 ease-in-out font-medium h5"
                   >
                     {post?.title}
-                  </a>
+                  </Link>
+
                   <p className="text-slate-400 mt-3">{post?.shortDesc}</p>
 
                   <div className="mt-5">
