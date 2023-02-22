@@ -8,15 +8,22 @@ export interface SettingsPayload {
   };
   mainNav?: NavigationMenu;
 }
-
-export type NavigationMenu = {
-  navItems: Array<{
-    text: string;
-    url: {
-      internalLink?: {
-        slug: string;
-        _type: string;
-      };
-    };
-  }>;
-};
+ 
+export interface BlogPostPayload {
+  _id: string;
+  _type: string;
+  image: Image;
+  title: string;
+  slug: string;
+  shortDesc: string;
+  description: PortableTextBlock[];
+  author: {
+    name: string;
+    description: string;
+  };
+  seo?: {
+    metaTitle: string;
+    metaDescription: string;
+    ogImage: Image;
+  };
+}
